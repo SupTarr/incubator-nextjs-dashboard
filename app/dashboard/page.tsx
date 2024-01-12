@@ -1,8 +1,11 @@
+import { fetchLatestInvoices } from "../lib/data";
 import { Card } from "../ui/dashboard/cards";
 import LatestInvoices from "../ui/dashboard/latest-invoices";
 import RevenueChart from "../ui/dashboard/revenue-chart";
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const latestInvoices = await fetchLatestInvoices();
+
   return (
     <div className="w-full">
       Dashboard
@@ -17,7 +20,7 @@ export default function DashboardPage() {
           <RevenueChart />
         </div>
         <div>
-          <LatestInvoices />
+          <LatestInvoices latestInvoices={latestInvoices} />
         </div>
       </div>
     </div>
