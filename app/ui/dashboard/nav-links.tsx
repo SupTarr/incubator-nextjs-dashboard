@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import Link from 'next/link';
 
 const links = [
   { name: "Home", href: "/dashboard", icon: HomeIcon },
@@ -26,7 +27,7 @@ export default function NavLinks() {
       {links.map((link) => {
         const LinkIcon = link.icon;
         return (
-          <a
+          <Link
             key={link.name}
             href={link.href}
             className={clsx(
@@ -36,7 +37,7 @@ export default function NavLinks() {
           >
             <LinkIcon className="w-6" />
             <p className="hidden md:block">{link.name}</p>
-          </a>
+          </Link>
         );
       })}
     </>
