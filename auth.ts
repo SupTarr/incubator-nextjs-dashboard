@@ -4,13 +4,14 @@ import { authConfig } from "./auth.config";
 import { z } from "zod";
 import { User } from "./app/lib/definitions";
 import { sql } from "@vercel/postgres";
+import bcrypt from "bcrypt";
 
 async function getUser(email: string): Promise<User | undefined> {
   try {
     const user = await sql<User>`
         SELECT * FROM users
         WHERE email=${email};`;
-        
+
     return user.rows[0];
   } catch (error) {
     console.error("Failed to fetch user.", error);
@@ -35,6 +36,8 @@ export const { auth, signIn, signOut } = NextAuth({
           const user = await getUser(email);
 
           if (!user) return null;
+          const passwordMatch = await bcrypt.compare(password, user.password);
+          if (passwordMatch) return user;
         }
         return null;
       },
