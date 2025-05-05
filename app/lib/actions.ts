@@ -14,6 +14,6 @@ export async function authenticate(
       return "Invalid credentials";
     }
 
-   throw error;
+    throw error;
   }
 }
