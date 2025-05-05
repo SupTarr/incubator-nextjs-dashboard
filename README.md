@@ -36,22 +36,22 @@ AUTH_SECRET=your_strong_secret_for_nextauth
 
 ### Installation
 
-1.Clone the repository:
+1. Clone the repository:
 
-```bash
-git clone <your-repository-url>
-cd incubator-nextjs-dashboard
-```
+    ```bash
+    git clone <your-repository-url>
+    cd incubator-nextjs-dashboard
+    ```
 
-2.Install dependencies:
+2. Install dependencies:
 
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-```
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
 
 ### Running the Development Server
 
