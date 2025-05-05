@@ -8,15 +8,11 @@ export async function authenticate(
 ) {
   try {
     await signIn("credentials", formData);
-  } catch (error) {
-    if (error instanceof Error) {
-      switch (error.message) {
-        case "CredentialsSignin":
-          return "Invalid credentials.";
-        default:
-          return "Something went wrong.";
-      }
-    }
-    throw error;
+} catch (error) {
+  if ((error as Error).message.includes('credentialssignin')) {
+    return 'Invalid credentials';
   }
+
+  return "An unknown error occurred";
+}
 }
