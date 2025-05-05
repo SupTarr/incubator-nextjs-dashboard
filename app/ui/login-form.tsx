@@ -1,13 +1,13 @@
-"use-client"
+"use client"
 
 import { AtSymbolIcon, KeyIcon } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { Button } from "./button";
-import { useFormState } from "react-dom";
-import { authenticate } from "../lib/actions";
+// import { useFormState } from "react-dom";
+// import { authenticate } from "../lib/actions";
 
 export default function LoginForm() {
-  const [errorMsg, dispatch] = useFormState(authenticate, undefined);
+  // const [errorMsg, dispatch] = useFormState(authenticate, undefined);
 
   return (
     <form className="space-y-3">
