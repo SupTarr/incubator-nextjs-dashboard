@@ -1,6 +1,6 @@
 # Next.js Dashboard Project
 
-This is a dashboard application built with Next.js, following the structure and concepts from the Next.js Learn course.
+This is a dashboard application built with Next.js, following the structure and concepts from the [Next.js Learn course](https://nextjs.org/learn).
 
 ## Getting Started
 
