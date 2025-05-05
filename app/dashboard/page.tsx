@@ -12,12 +12,12 @@ export default async function DashboardPage() {
   return (
     <div className="w-full">
       Dashboard
-      <div className="gap-4 grid grid-cols-2 md:grid-cols-4 mt-6">
+      <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
         <Suspense fallback={<CardSkeleton />}>
           <CardWrapper />
         </Suspense>
       </div>
-      <div className="gap-4 grid grid-cols-1 md:grid-cols-2 mt-6">
+      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         <Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChart />
         </Suspense>

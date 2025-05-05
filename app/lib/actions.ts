@@ -1,21 +1,22 @@
-import { signIn } from "@/auth";
-import { AuthError } from "next-auth";
+"use server";
 
-export const authenticate = async (
-  prevData: string | undefined,
-  formData: FormData
-) => {
+import { signIn } from "@/auth";
+
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData,
+) {
   try {
     await signIn("credentials", formData);
   } catch (error) {
-    if (error instanceof AuthError) {
-      switch (error.type) {
+    if (error instanceof Error) {
+      switch (error.message) {
         case "CredentialsSignin":
-          return "error";
+          return "Invalid credentials.";
         default:
-          return "error";
+          return "Something went wrong.";
       }
     }
     throw error;
   }
-};
+}
