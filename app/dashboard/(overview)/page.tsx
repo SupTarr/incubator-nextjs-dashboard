@@ -7,7 +7,7 @@ import {
   RevenueChartSkeleton,
   LatestInvoicesSkeleton,
 } from "../../ui/skeletons";
-import { lusitana } from '@/app/ui/fonts';
+import { lusitana } from "@/app/ui/fonts";
 
 export default async function DashboardPage() {
   return (
