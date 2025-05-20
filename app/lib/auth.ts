@@ -1,8 +1,11 @@
+"use server";
+
 import { signIn } from "@/auth";
+import bcrypt from "bcrypt";
 
 export async function authenticate(
   prevState: string | undefined,
-  formData: FormData
+  formData: FormData,
 ) {
   try {
     await signIn("credentials", formData);
@@ -13,4 +16,11 @@ export async function authenticate(
 
     throw error;
   }
+}
+
+export async function verifyPassword(
+  plainPassword: string,
+  hashedPassword: string,
+) {
+  return bcrypt.compare(plainPassword, hashedPassword);
 }
