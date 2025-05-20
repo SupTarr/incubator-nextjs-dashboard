@@ -1,0 +1,16 @@
+import { signIn } from "@/auth";
+
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData
+) {
+  try {
+    await signIn("credentials", formData);
+  } catch (error) {
+    if ((error as Error).message.toLowerCase().includes("credentialssignin")) {
+      return "Invalid credentials";
+    }
+
+    throw error;
+  }
+}
