@@ -8,6 +8,11 @@ import {
   LatestInvoicesSkeleton,
 } from "../../ui/skeletons";
 import { lusitana } from "@/app/ui/fonts";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home",
+};
 
 export default async function DashboardPage() {
   return (
